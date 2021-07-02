@@ -41,7 +41,7 @@ public class Menu {
     }
 
 
-    public void menu(Gimnasio gimnasioAsign) {
+    public void menu(Gimnasio gymAsign) {
         try {
             Scanner menu = new Scanner(System.in);
             boolean salir = false;
@@ -49,12 +49,13 @@ public class Menu {
 
             while (!salir) {
                 System.out.println("\n--------MENU--------");
-                System.out.println("1 - Inscribir a una persona.");
-                System.out.println("2 - Entrenamiento.");
+                System.out.println("1 - Inscribir a una persona. (Pendiente)");
+                System.out.println("2 - Entrenamiento. (Pendiente)");
                 System.out.println("3 - Salir.");
-                System.out.println("4 - Crea el primer gimnasio.");
+                System.out.println("4 - Crea un gimnasio. (Pendiente)");
                 System.out.println("5 - Prueba de añadir pesas.");
                 System.out.println("6 - INFO: Estado actual.");
+                System.out.println("7 - Añade material manualmente");
                 System.out.print("Escribe una de las opciones: ");
                 opcion = menu.nextInt();
 
@@ -67,16 +68,20 @@ public class Menu {
                         salir = true;
                     }
                     case 4 -> {
-                        System.out.println("Opción 4, crearemos un gimnasio: ");
+                        System.out.println("Elegida opción 4. Aún no hago nada.");
                         //crearGimnasio();
                     }
                     case 5 -> {
-                        gimnasioAsign.pesasPorDefecto(gimnasioAsign);
+                        gymAsign.pesasPorDefecto(gymAsign);
                     }
 
                     case 6 -> {
                         System.out.println("Hay " + getListaGimnasios().size() + " gimnasios.");
                         System.out.println("Estos son los gimnasios: " + getListaGimnasios());
+                    }
+
+                    case 7 -> {
+                        gymAsign.anadirMaterial(gymAsign);
                     }
 
                     default -> {
@@ -87,7 +92,7 @@ public class Menu {
             }
         } catch (Exception e) {
             System.out.println("Error al introducir opción.");
-            menu(gimnasioAsign);
+            menu(gymAsign);
         }
 
     }

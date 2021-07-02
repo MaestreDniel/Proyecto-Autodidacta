@@ -20,8 +20,13 @@ public class Disco extends Peso {
     }
 
     @Override
+    public Peso solicitarDatos(Gimnasio gym) {
+        return null;
+    }
+
+    @Override
     public String toString() {
-        return "Disco: {" +
+        return "\nDisco: {" +
                 "idobjeto=" + getIdobjeto() +
                 ", kg=" + getKg() +
                 ", color=" + color +
