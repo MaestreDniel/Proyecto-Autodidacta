@@ -22,6 +22,10 @@ public class Entrenador extends Persona {
         this.relacion = relacion;
     }
 
+    public Entrenador() {
+
+    }
+
     public Entrenador(String dni, double altura, double peso, int edad, String nombre, String apellido, ArrayList<Levantador> levantadores, int relacion) {
         super(dni, altura, peso, edad, nombre, apellido);
         this.levantadores = levantadores;
@@ -40,5 +44,10 @@ public class Entrenador extends Persona {
                 ", levantadores=" + levantadores +
                 ", relacion=" + relacion +
                 '}';
+    }
+
+    @Override
+    public void inscribirPersona(Gimnasio gym) {
+
     }
 }

@@ -29,5 +29,4 @@ public abstract class Peso {
         this.kg = kg;
     }
 
-    public abstract Peso solicitarDatos(Gimnasio gym);
 }

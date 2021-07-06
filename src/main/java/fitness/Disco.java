@@ -15,13 +15,9 @@ public class Disco extends Peso {
 
     }
 
-    public Disco(int idobjeto, double kg) {
+    public Disco(int idobjeto, String color, double kg) {
         super(idobjeto, kg);
-    }
-
-    @Override
-    public Peso solicitarDatos(Gimnasio gym) {
-        return null;
+        this.color = color;
     }
 
     @Override

@@ -20,11 +20,6 @@ public class Mancuerna extends Peso {
     }
 
     @Override
-    public Peso solicitarDatos(Gimnasio gym) {
-        return null;
-    }
-
-    @Override
     public String toString() {
         return "\nMancuerna: {" +
                 "idobjeto=" + getIdobjeto() +

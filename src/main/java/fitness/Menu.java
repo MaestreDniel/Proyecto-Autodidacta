@@ -7,21 +7,17 @@ import java.util.Scanner;
  * Proyecto Autodidacta
  *
  * @author Daniel Maestre Hermoso
- * @version 0.01
+ * @version 0.1
  * Fecha de inicio: 23/06/2021
  * Aplicación con POO para simular la trayectoria de los levantadores.
  */
 
 public class Menu {
 
-    private static ArrayList<Gimnasio> listaGimnasios = new ArrayList<>();
+    private static final ArrayList<Gimnasio> listaGimnasios = new ArrayList<>();
 
     public static ArrayList<Gimnasio> getListaGimnasios() {
         return listaGimnasios;
-    }
-
-    public static void setListaGimnasios(ArrayList<Gimnasio> listaGimnasios) {
-        Menu.listaGimnasios = listaGimnasios;
     }
 
     public void primerGimnasio() {
@@ -40,7 +36,6 @@ public class Menu {
         menu.menu(gimnasio);
     }
 
-
     public void menu(Gimnasio gymAsign) {
         try {
             Scanner menu = new Scanner(System.in);
@@ -48,41 +43,63 @@ public class Menu {
             int opcion;
 
             while (!salir) {
-                System.out.println("\n--------MENU--------");
-                System.out.println("1 - Inscribir a una persona. (Pendiente)");
-                System.out.println("2 - Entrenamiento. (Pendiente)");
-                System.out.println("3 - Salir.");
-                System.out.println("4 - Crea un gimnasio. (Pendiente)");
-                System.out.println("5 - Prueba de añadir pesas.");
-                System.out.println("6 - INFO: Estado actual.");
-                System.out.println("7 - Añade material manualmente");
+                System.out.print("""
+                                            
+                        ------------MENU------------\s
+                                            
+                        1 - Inscribir a una persona.
+                        2 - Entrenamiento. (Pendiente)
+                        3 - Salir.
+                        4 - Crea un gimnasio. (Pendiente)
+                        5 - INFO: Estado actual.
+                        6 - Añade material.
+                                            
+                        """);
+
                 System.out.print("Escribe una de las opciones: ");
                 opcion = menu.nextInt();
 
-                //gimnasio.inscribirPersona();
                 switch (opcion) {
-                    case 1 -> System.out.println("Elegida opción 1. Aún no hago nada.");
+                    case 1 -> {
+                        System.out.print("""
+                                            
+                        ------------INSCRIPCIONES------------\s
+                                            
+                        1. Inscribe a un levantador.
+                        2. Inscribe a un entrenador. (Pendiente)
+                        3. Salir de inscripciones.
+                                            
+                        """);
+
+                        System.out.print("Escribe una de las opciones: ");
+                        Scanner sc = new Scanner(System.in);
+                        int inscripcion = sc.nextInt();
+                        if (inscripcion == 1) {
+                            Levantador l = new Levantador();
+                            l.inscribirPersona(gymAsign);
+                        } else if (inscripcion == 2) {
+                            Entrenador e = new Entrenador();
+                            e.inscribirPersona(gymAsign);
+                        } else {
+                            System.out.println("Volviendo al menú principal.");
+                        }
+                    }
+
                     case 2 -> System.out.println("Elegida opción 2. Aún no hago nada.");
+
                     case 3 -> {
                         System.out.println("Cerrando menú principal.");
                         salir = true;
                     }
-                    case 4 -> {
-                        System.out.println("Elegida opción 4. Aún no hago nada.");
-                        //crearGimnasio();
-                    }
-                    case 5 -> {
-                        gymAsign.pesasPorDefecto(gymAsign);
-                    }
+                    case 4 -> System.out.println("Elegida opción 4. Aún no hago nada.");
+                    //crearGimnasio();
 
-                    case 6 -> {
-                        System.out.println("Hay " + getListaGimnasios().size() + " gimnasios.");
+                    case 5 -> {
+                        System.out.println("Hay " + getListaGimnasios().size() + " gimnasio/s.");
                         System.out.println("Estos son los gimnasios: " + getListaGimnasios());
                     }
 
-                    case 7 -> {
-                        gymAsign.anadirMaterial(gymAsign);
-                    }
+                    case 6 -> gymAsign.anadirMaterial(gymAsign);
 
                     default -> {
                         System.out.println("No existe esa opción.");
