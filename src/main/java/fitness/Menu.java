@@ -49,10 +49,11 @@ public class Menu {
                                             
                         1 - Inscribir a una persona.
                         2 - Entrenamiento. (Pendiente)
-                        3 - Salir.
+                        3 - LMAO.
                         4 - Crea un gimnasio. (Pendiente)
                         5 - INFO: Estado actual.
                         6 - Añade material.
+                        0 - Salir.
                                             
                         """);
 
@@ -85,12 +86,13 @@ public class Menu {
                         }
                     }
 
-                    case 2 -> System.out.println("Elegida opción 2. Aún no hago nada.");
-
-                    case 3 -> {
-                        System.out.println("Cerrando menú principal.");
-                        salir = true;
+                    case 2 -> {
+                        System.out.println("En construcción. Vamos a cargar una barra: ");
+                        gymAsign.levantamientoBarra(gymAsign);
                     }
+
+                    case 3 -> System.out.println("LMAO, soy horrible y aún no hago nada.");
+
                     case 4 -> System.out.println("Elegida opción 4. Aún no hago nada.");
                     //crearGimnasio();
 
@@ -100,6 +102,11 @@ public class Menu {
                     }
 
                     case 6 -> gymAsign.anadirMaterial(gymAsign);
+
+                    case 0 -> {
+                        System.out.println("Cerrando menú principal.");
+                        salir = true;
+                    }
 
                     default -> {
                         System.out.println("No existe esa opción.");
